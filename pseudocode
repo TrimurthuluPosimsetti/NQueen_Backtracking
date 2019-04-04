@@ -1,0 +1,24 @@
+Algorithm place(k, i)
+//return true if a queen can be placed in kth row and ith column. otherwise it returns
+//false X[] is a global array whose first k-1 values have been set. Abs returns the
+//absolute value of r.
+{
+    for j = 1 to k - 1 do
+            if ((X[j] = i) //two queens in same column.
+                or(abs(X[j] - i) = Abs(j - k))) // in same diagonal
+                then
+        return false;
+        return true;
+}
+Algorithm Nqueens(k, n) // recursive algorithm
+//using backtracking it prints all possible positions of n queens in ‘n*n’ chessboard. so
+//that they are non attacking.
+{
+    for i = 1 to n do {
+        if place(k, i) then {
+            X[k] = i;
+            if (k = n) then write(X[1: n]);
+            else Nqueens(k + 1, n);
+        }
+    }
+}
